@@ -1,6 +1,6 @@
 /* Alex Tetervak, Sheridan College, Ontario */
 
-package ca.javateacher.bookdatademo3;
+package ca.javateacher.bookdatademo3.ui.dialogs;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -13,10 +13,10 @@ import ca.javateacher.bookdatademo3.R;
 
 public class ConfirmDeleteFragment extends DialogFragment {
 
-  static final String TAG = "ConfirmDeleteFragment";
+  public static final String TAG = "ConfirmDeleteFragment";
 
   @SuppressWarnings("unused")
-  static ConfirmDeleteFragment newInstance() {
+  public static ConfirmDeleteFragment newInstance() {
     return new ConfirmDeleteFragment();
   }
 

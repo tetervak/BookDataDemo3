@@ -1,4 +1,4 @@
-package ca.javateacher.bookdatademo3;
+package ca.javateacher.bookdatademo3.ui.details.view;
 
 import android.content.Context;
 import android.text.format.DateFormat;
@@ -6,9 +6,9 @@ import android.util.Log;
 
 import androidx.lifecycle.LiveData;
 
+import ca.javateacher.bookdatademo3.R;
 import ca.javateacher.bookdatademo3.databinding.ViewBookBinding;
 import ca.javateacher.bookdatademo3.model.Book;
-import ca.javateacher.bookdatademo3.viewmodel.BookDetailsViewModel;
 
 public class ViewBookPresenter {
 
@@ -17,7 +17,7 @@ public class ViewBookPresenter {
   private final ViewBookFragment mFragment;
   private final Context mFragmentContext;
   private final ViewBookBinding mBinding;
-  private BookDetailsViewModel mViewModel;
+  private ViewBookViewModel mViewModel;
   private long mBookId;
   private Book mBook;
 
@@ -31,7 +31,7 @@ public class ViewBookPresenter {
     mFragment.getNavigator().viewBookToEditBook(mBookId);
   }
 
-  public void init(BookDetailsViewModel viewModel, long bookId) {
+  public void init(ViewBookViewModel viewModel, long bookId) {
     mViewModel = viewModel;
     mBookId = bookId;
     mBook = new Book();

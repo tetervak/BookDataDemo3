@@ -1,4 +1,4 @@
-package ca.javateacher.bookdatademo3;
+package ca.javateacher.bookdatademo3.ui.details.edit;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -16,8 +16,11 @@ import androidx.lifecycle.ViewModelProviders;
 
 import java.util.Date;
 
+import ca.javateacher.bookdatademo3.BookAppFragment;
+import ca.javateacher.bookdatademo3.ui.dialogs.ConfirmDeleteFragment;
+import ca.javateacher.bookdatademo3.ui.dialogs.DatePickerFragment;
+import ca.javateacher.bookdatademo3.R;
 import ca.javateacher.bookdatademo3.databinding.EditBookBinding;
-import ca.javateacher.bookdatademo3.viewmodel.BookDetailsViewModel;
 
 public class EditBookFragment extends BookAppFragment {
   private static final String TAG = "EditBookFragment";
@@ -29,7 +32,7 @@ public class EditBookFragment extends BookAppFragment {
   private EditBookPresenter mPresenter;
   private long mBookId;
 
-  static final String ARG_BOOK_ID = "book_id";
+  public static final String ARG_BOOK_ID = "book_id";
 
   public EditBookFragment() {
   }
@@ -80,8 +83,8 @@ public class EditBookFragment extends BookAppFragment {
   @Override
   public void onActivityCreated(@Nullable Bundle savedInstanceState) {
     super.onActivityCreated(savedInstanceState);
-    BookDetailsViewModel viewModel
-      = ViewModelProviders.of(this).get(BookDetailsViewModel.class);
+    EditBookViewModel viewModel
+      = ViewModelProviders.of(this).get(EditBookViewModel.class);
     mPresenter.init(viewModel, mBookId);
   }
 

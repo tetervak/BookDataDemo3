@@ -14,6 +14,8 @@ import androidx.navigation.ui.NavigationUI;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import ca.javateacher.bookdatademo3.ui.dialogs.AboutFragment;
+
 public class MainActivity extends AppCompatActivity{
 
   private BookAppNavigator mBookAppNavigator;

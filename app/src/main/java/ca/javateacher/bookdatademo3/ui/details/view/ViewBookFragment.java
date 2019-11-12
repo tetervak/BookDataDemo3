@@ -1,4 +1,4 @@
-package ca.javateacher.bookdatademo3;
+package ca.javateacher.bookdatademo3.ui.details.view;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -14,8 +14,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.lifecycle.ViewModelProviders;
 
+import ca.javateacher.bookdatademo3.BookAppFragment;
+import ca.javateacher.bookdatademo3.R;
 import ca.javateacher.bookdatademo3.databinding.ViewBookBinding;
-import ca.javateacher.bookdatademo3.viewmodel.BookDetailsViewModel;
+import ca.javateacher.bookdatademo3.ui.dialogs.ConfirmDeleteFragment;
 
 public class ViewBookFragment extends BookAppFragment {
 
@@ -27,7 +29,7 @@ public class ViewBookFragment extends BookAppFragment {
   private ViewBookPresenter mPresenter;
   private Long mBookId;
 
-  static final String ARG_BOOK_ID = "book_id";
+  public static final String ARG_BOOK_ID = "book_id";
 
   public ViewBookFragment() {
   }
@@ -78,8 +80,8 @@ public class ViewBookFragment extends BookAppFragment {
   @Override
   public void onActivityCreated(@Nullable Bundle savedInstanceState) {
     super.onActivityCreated(savedInstanceState);
-    BookDetailsViewModel viewModel
-      = ViewModelProviders.of(this).get(BookDetailsViewModel.class);
+    ViewBookViewModel viewModel
+      = ViewModelProviders.of(this).get(ViewBookViewModel.class);
     mPresenter.init(viewModel, mBookId);
   }
 

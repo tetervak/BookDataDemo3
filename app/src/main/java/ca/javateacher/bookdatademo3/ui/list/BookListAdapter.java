@@ -1,6 +1,6 @@
 /* Alex Tetervak, Sheridan College, Ontario */
 
-package ca.javateacher.bookdatademo3;
+package ca.javateacher.bookdatademo3.ui.list;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,13 +13,13 @@ import java.util.Locale;
 import ca.javateacher.bookdatademo3.databinding.ListItemBinding;
 import ca.javateacher.bookdatademo3.model.Book;
 
-class BookRecyclerViewAdapter
-    extends RecyclerView.Adapter<BookRecyclerViewAdapter.ViewHolder> {
+class BookListAdapter
+    extends RecyclerView.Adapter<BookListAdapter.ViewHolder> {
 
   private final BookListFragment mFragment;
   private List<Book> mBookList;
 
-  BookRecyclerViewAdapter(BookListFragment fragment) {
+  BookListAdapter(BookListFragment fragment) {
     mFragment = fragment;
   }
 

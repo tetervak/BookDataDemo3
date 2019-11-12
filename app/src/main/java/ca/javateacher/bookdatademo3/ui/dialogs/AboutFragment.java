@@ -1,4 +1,4 @@
-package ca.javateacher.bookdatademo3;
+package ca.javateacher.bookdatademo3.ui.dialogs;
 
 import android.app.AlertDialog;
 import android.app.Dialog;

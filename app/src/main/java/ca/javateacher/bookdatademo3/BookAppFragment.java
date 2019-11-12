@@ -24,7 +24,7 @@ abstract public class BookAppFragment extends Fragment {
     mBookAppNavigator = new BookAppNavigator(this);
   }
 
-  BookAppNavigator getNavigator() {
+  public BookAppNavigator getNavigator() {
     return mBookAppNavigator;
   }
 }

@@ -1,6 +1,6 @@
 /* Alex Tetervak, Sheridan College, Ontario */
 
-package ca.javateacher.bookdatademo3;
+package ca.javateacher.bookdatademo3.ui.list;
 
 import android.content.Context;
 import androidx.lifecycle.LiveData;
@@ -10,12 +10,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import ca.javateacher.bookdatademo3.model.Book;
-import ca.javateacher.bookdatademo3.viewmodel.BookListViewModel;
 
 class BookListPresenter{
 
   private final BookListFragment mFragment;
-  private final BookRecyclerViewAdapter mAdapter;
+  private final BookListAdapter mAdapter;
 
   BookListPresenter(BookListFragment fragment, RecyclerView recyclerView) {
     mFragment = fragment;
@@ -29,7 +28,7 @@ class BookListPresenter{
         new DividerItemDecoration(context, layoutManager.getOrientation());
     recyclerView.addItemDecoration(divider);
 
-    mAdapter = new BookRecyclerViewAdapter(fragment);
+    mAdapter = new BookListAdapter(fragment);
     recyclerView.setAdapter(mAdapter);
   }
 

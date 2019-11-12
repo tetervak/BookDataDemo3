@@ -1,4 +1,4 @@
-package ca.javateacher.bookdatademo3;
+package ca.javateacher.bookdatademo3.ui.details.add;
 
 import android.content.Context;
 import android.text.format.DateFormat;
@@ -6,43 +6,33 @@ import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
-import androidx.lifecycle.LiveData;
-
 import java.util.Date;
 
-import ca.javateacher.bookdatademo3.databinding.EditBookBinding;
+import ca.javateacher.bookdatademo3.R;
+import ca.javateacher.bookdatademo3.databinding.AddBookBinding;
 import ca.javateacher.bookdatademo3.model.Book;
-import ca.javateacher.bookdatademo3.viewmodel.BookDetailsViewModel;
 
-public class EditBookPresenter {
+class AddBookPresenter {
 
-  private static final String TAG = "EditBookPresenter";
+  private static final String TAG = "AddBookPresenter";
 
-  private final EditBookFragment mFragment;
-  private final Context mFragmentContext;
-  private final EditBookBinding mBinding;
-  private BookDetailsViewModel mViewModel;
-  private long mBookId;
+  private AddBookFragment mFragment;
+  private Context mFragmentContext;
+  private AddBookBinding mBinding;
+  private AddBookViewModel mViewModel;
   private Book mBook;
   private Date mDate;
 
-  public EditBookPresenter(EditBookFragment fragment, EditBookBinding binding) {
+
+  public AddBookPresenter(AddBookFragment fragment, AddBookBinding binding) {
     mFragment = fragment;
     mFragmentContext = fragment.getContext();
     mBinding = binding;
   }
 
-  void init(BookDetailsViewModel viewModel, Long bookId){
+  public void init(AddBookViewModel viewModel) {
     mViewModel = viewModel;
-    mBookId = bookId;
     mBook = new Book();
-    LiveData<Book> bookData = mViewModel.getBookData(mBookId);
-    bookData.observe(mFragment, book -> {
-      if(book != null){
-        mBook = book;
-        setInputsFromBook();
-      }
-    });
     setInputsFromBook();
     setupListeners();
   }
@@ -52,7 +42,7 @@ public class EditBookPresenter {
     if(validateInputs()){
       hideKeyboard();
       setBookFromInputs();
-      mViewModel.saveBook(mBook);
+      mViewModel.insertBook(mBook);
       mFragment.getNavigator().toBookList();
     }
   }
@@ -142,11 +132,6 @@ public class EditBookPresenter {
 
   private void setBookTitle() {
     mBook.setTitle(mBinding.titleEdit.getText().toString());
-  }
-
-  void deleteBook() {
-    mViewModel.deleteBook(mBook);
-    mFragment.getNavigator().toBookList();
   }
 
   void setDate(Date date) {

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="ca.javateacher.bookdatademo3.BookListFragment">
+    tools:context="ca.javateacher.bookdatademo3.ui.list.BookListFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/book_list"

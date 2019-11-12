@@ -53,19 +53,19 @@ public class BookRepository {
     return book;
   }
 
-  public void saveBook(Book book) {
-    if (book.getRowId() == null) {
-      Thread thread = new Thread(() -> mBookDao.insertBook(book2Entity(book)));
-      thread.start();
-    } else {
-      Thread thread = new Thread(() -> mBookDao.updateBook(book2Entity(book)));
-      thread.start();
-    }
+  public void updateBook(Book book){
+    Thread thread = new Thread(() -> mBookDao.updateBook(book2Entity(book)));
+    thread.start();
+  }
+
+  public void insertBook(Book book){
+    Thread thread = new Thread(() -> mBookDao.insertBook(book2Entity(book)));
+    thread.start();
   }
 
   private BookEntity book2Entity(Book book){
     BookEntity entity = new BookEntity();
-    entity.setId((book.getRowId() == null) ? 0 : book.getRowId());
+    entity.setId(book.getRowId());
     entity.setTitle(book.getTitle());
     entity.setAuthor(book.getAuthor());
     entity.setDate(book.getDate());
@@ -76,10 +76,8 @@ public class BookRepository {
   }
 
   public void deleteBook(Book book) {
-    if (book.getRowId() != null) {
-      Thread thread = new Thread(() -> mBookDao.deleteBookById(book.getRowId()));
-      thread.start();
-    }
+    Thread thread = new Thread(() -> mBookDao.deleteBookById(book.getRowId()));
+    thread.start();
   }
 
 }

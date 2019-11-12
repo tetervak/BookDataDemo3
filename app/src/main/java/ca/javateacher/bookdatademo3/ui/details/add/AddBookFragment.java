@@ -1,4 +1,4 @@
-package ca.javateacher.bookdatademo3;
+package ca.javateacher.bookdatademo3.ui.details.add;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -16,8 +16,10 @@ import androidx.lifecycle.ViewModelProviders;
 
 import java.util.Date;
 
+import ca.javateacher.bookdatademo3.BookAppFragment;
+import ca.javateacher.bookdatademo3.ui.dialogs.DatePickerFragment;
+import ca.javateacher.bookdatademo3.R;
 import ca.javateacher.bookdatademo3.databinding.AddBookBinding;
-import ca.javateacher.bookdatademo3.viewmodel.BookDetailsViewModel;
 
 public class AddBookFragment extends BookAppFragment {
   private static final String TAG = "AddBookFragment";
@@ -60,12 +62,12 @@ public class AddBookFragment extends BookAppFragment {
   @Override
   public void onActivityCreated(@Nullable Bundle savedInstanceState) {
     super.onActivityCreated(savedInstanceState);
-    BookDetailsViewModel viewModel
-      = ViewModelProviders.of(this).get(BookDetailsViewModel.class);
+    AddBookViewModel viewModel
+      = ViewModelProviders.of(this).get(AddBookViewModel.class);
     mPresenter.init(viewModel);
   }
 
-  void showDatePickerDialog(Date date) {
+  public void showDatePickerDialog(Date date) {
     DatePickerFragment fragment =
       DatePickerFragment.newInstance(date);
     fragment.setTargetFragment(this, DATE_REQUEST_CODE);

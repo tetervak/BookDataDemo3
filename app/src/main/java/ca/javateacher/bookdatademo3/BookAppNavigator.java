@@ -7,6 +7,9 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
+import ca.javateacher.bookdatademo3.ui.details.edit.EditBookFragment;
+import ca.javateacher.bookdatademo3.ui.details.view.ViewBookFragment;
+
 public class BookAppNavigator {
 
   private NavController mNavController;

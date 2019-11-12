@@ -14,10 +14,6 @@
     <string name="used_or_new_label">Used or New</string>
     <string name="used_book_label">Used Book</string>
     <string name="date_label">Publication Date</string>
-    <array name="language_list">
-        <item>English</item>
-        <item>French</item>
-    </array>
     <string name="menu_delete">Delete</string>
     <string name="menu_save">Save</string>
 

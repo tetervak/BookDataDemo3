@@ -1,6 +1,6 @@
 /* Alex Tetervak, Sheridan College, Ontario */
 
-package ca.javateacher.bookdatademo3;
+package ca.javateacher.bookdatademo3.ui.list;
 
 import android.os.Bundle;
 import androidx.annotation.NonNull;
@@ -16,7 +16,8 @@ import android.view.ViewGroup;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import ca.javateacher.bookdatademo3.viewmodel.BookListViewModel;
+import ca.javateacher.bookdatademo3.BookAppFragment;
+import ca.javateacher.bookdatademo3.R;
 
 public class BookListFragment extends BookAppFragment {
 
@@ -39,7 +40,7 @@ public class BookListFragment extends BookAppFragment {
   public View onCreateView(LayoutInflater inflater, ViewGroup container,
                            Bundle savedInstanceState) {
     // Inflate the layout for this fragment
-    View view = inflater.inflate(R.layout.fragment_book_list, container, false);
+    View view = inflater.inflate(R.layout.book_list, container, false);
     FloatingActionButton fab = view.findViewById(R.id.fab);
     fab.setOnClickListener(v -> addBook());
 

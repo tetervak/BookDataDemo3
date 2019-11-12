@@ -1,6 +1,6 @@
 /* Alex Tetervak, Sheridan College, Ontario */
 
-package ca.javateacher.bookdatademo3;
+package ca.javateacher.bookdatademo3.ui.dialogs;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;
@@ -20,15 +20,15 @@ import ca.javateacher.bookdatademo3.R;
 public class DatePickerFragment extends DialogFragment
         implements DatePickerDialog.OnDateSetListener {
 
-    static final String TAG = "DatePickerFragment";
-    static final String DATE = "date";
+    public static final String TAG = "DatePickerFragment";
+    public static final String DATE = "date";
 
     public DatePickerFragment() {
         // Required empty public constructor
     }
 
     @SuppressWarnings("unused")
-    static DatePickerFragment newInstance(Date date) {
+    public static DatePickerFragment newInstance(Date date) {
         DatePickerFragment fragment = new DatePickerFragment();
         Bundle arguments = new Bundle();
         arguments.putSerializable(DATE, date);

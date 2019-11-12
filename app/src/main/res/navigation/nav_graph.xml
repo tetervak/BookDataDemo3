@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/bookListFragment"
-        android:name="ca.javateacher.bookdatademo3.BookListFragment"
+        android:name="ca.javateacher.bookdatademo3.ui.list.BookListFragment"
         android:label="Book List"
-        tools:layout="@layout/fragment_book_list">
+        tools:layout="@layout/book_list">
         <action
             android:id="@+id/action_BookList_to_ViewBook"
             app:destination="@id/viewBookFragment" />
@@ -23,7 +23,7 @@
         app:popUpTo="@id/bookListFragment" />
     <fragment
         android:id="@+id/viewBookFragment"
-        android:name="ca.javateacher.bookdatademo3.ViewBookFragment"
+        android:name="ca.javateacher.bookdatademo3.ui.details.view.ViewBookFragment"
         android:label="View Book">
         <action
             android:id="@+id/action_ViewBook_to_EditBook"
@@ -31,10 +31,10 @@
     </fragment>
     <fragment
         android:id="@+id/newBookFragment"
-        android:name="ca.javateacher.bookdatademo3.AddBookFragment"
+        android:name="ca.javateacher.bookdatademo3.ui.details.add.AddBookFragment"
         android:label="New Book" />
     <fragment
         android:id="@+id/editBookFragment"
-        android:name="ca.javateacher.bookdatademo3.EditBookFragment"
+        android:name="ca.javateacher.bookdatademo3.ui.details.edit.EditBookFragment"
         android:label="Edit Book" />
 </navigation>
