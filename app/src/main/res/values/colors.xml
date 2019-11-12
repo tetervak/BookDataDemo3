@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="light_blue_darken_4">#01579b</color>
+    <color name="light_blue_darken_3">#0277bd</color>
+    <color name="orange_darken_3">#ef6c00</color>
+
+    <color name="colorPrimary">@color/light_blue_darken_3</color>
+    <color name="colorPrimaryDark">@color/light_blue_darken_4</color>
+    <color name="colorAccent">@color/orange_darken_3</color>
+    <color name="output_value">#0D47A1</color>
+</resources>

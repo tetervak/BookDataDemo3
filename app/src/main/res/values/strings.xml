@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">Book Data Demo 3</string>
+    <string name="title_book_list">Book List 3</string>
+
+    <!-- BookDetailsFragment -->
+    <string name="cannot_be_empty">Cannot be empty</string>
+    <string name="new_book_label">New Book</string>
+    <string name="book_title">Book Title</string>
+    <string name="book_author">Book Author</string>
+    <string name="language_label">Language</string>
+    <string name="format_label">Format</string>
+    <string name="paperback_label">Paperback</string>
+    <string name="hardcover_label">Hardcover</string>
+    <string name="used_or_new_label">Used or New</string>
+    <string name="used_book_label">Used Book</string>
+    <string name="date_label">Publication Date</string>
+    <array name="language_list">
+        <item>English</item>
+        <item>French</item>
+    </array>
+    <string name="menu_delete">Delete</string>
+    <string name="menu_save">Save</string>
+
+    <!-- BookListFragment -->
+    <string name="menu_add">Add Book</string>
+
+    <!-- ConfirmDeleteFragment -->
+    <string name="confirm_delete_title">Confirm Delete</string>
+    <string name="confirm_delete_message">Do you really want to remove this record?</string>
+
+    <!-- AboutFragment -->
+    <string name="about">About</string>
+    <string name="author">Alex Tetervak, Sheridan College, 2019</string>
+    <string name="menu_edit">Edit</string>
+    <string name="used_book">Used Book</string>
+    <string name="new_book">New Book</string>
+
+
+</resources>

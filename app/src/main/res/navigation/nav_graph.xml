@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/bookListFragment">
+
+    <fragment
+        android:id="@+id/bookListFragment"
+        android:name="ca.javateacher.bookdatademo3.BookListFragment"
+        android:label="Book List"
+        tools:layout="@layout/fragment_book_list">
+        <action
+            android:id="@+id/action_BookList_to_ViewBook"
+            app:destination="@id/viewBookFragment" />
+        <action
+            android:id="@+id/action_BookList_to_NewBook"
+            app:destination="@id/newBookFragment" />
+    </fragment>
+    <action
+        android:id="@+id/action_to_BookList"
+        app:destination="@id/bookListFragment"
+        app:popUpTo="@id/bookListFragment" />
+    <fragment
+        android:id="@+id/viewBookFragment"
+        android:name="ca.javateacher.bookdatademo3.ViewBookFragment"
+        android:label="View Book">
+        <action
+            android:id="@+id/action_ViewBook_to_EditBook"
+            app:destination="@id/editBookFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newBookFragment"
+        android:name="ca.javateacher.bookdatademo3.AddBookFragment"
+        android:label="New Book" />
+    <fragment
+        android:id="@+id/editBookFragment"
+        android:name="ca.javateacher.bookdatademo3.EditBookFragment"
+        android:label="Edit Book" />
+</navigation>
