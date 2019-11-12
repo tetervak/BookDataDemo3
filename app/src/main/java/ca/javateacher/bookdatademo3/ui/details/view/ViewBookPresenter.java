@@ -35,6 +35,8 @@ public class ViewBookPresenter {
     mViewModel = viewModel;
     mBookId = bookId;
     mBook = new Book();
+    setOutputsFromBook();
+    setupListeners();
     LiveData<Book> bookData = mViewModel.getBookData(mBookId);
     bookData.observe(mFragment, book -> {
       if(book != null){
@@ -42,8 +44,6 @@ public class ViewBookPresenter {
         setOutputsFromBook();
       }
     });
-    setOutputsFromBook();
-    setupListeners();
   }
 
   private void setupListeners() {

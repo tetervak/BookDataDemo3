@@ -86,10 +86,7 @@ public class ViewBookFragment extends BookAppFragment {
   }
 
   private void showDeleteBookDialog() {
-    ConfirmDeleteFragment fragment =
-      ConfirmDeleteFragment.newInstance();
-    fragment.setTargetFragment(this, DELETE_REQUEST_CODE);
-    fragment.show(getFragmentManager(), ConfirmDeleteFragment.TAG);
+    ConfirmDeleteFragment.show(this, DELETE_REQUEST_CODE);
   }
 
   public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {

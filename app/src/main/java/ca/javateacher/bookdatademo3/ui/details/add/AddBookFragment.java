@@ -68,10 +68,7 @@ public class AddBookFragment extends BookAppFragment {
   }
 
   public void showDatePickerDialog(Date date) {
-    DatePickerFragment fragment =
-      DatePickerFragment.newInstance(date);
-    fragment.setTargetFragment(this, DATE_REQUEST_CODE);
-    fragment.show(getFragmentManager(), DatePickerFragment.TAG);
+    DatePickerFragment.show(this, date, DATE_REQUEST_CODE);
   }
 
   public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {

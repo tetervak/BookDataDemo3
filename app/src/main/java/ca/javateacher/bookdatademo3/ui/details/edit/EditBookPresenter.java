@@ -22,7 +22,6 @@ public class EditBookPresenter {
   private final Context mFragmentContext;
   private final EditBookBinding mBinding;
   private EditBookViewModel mViewModel;
-  private long mBookId;
   private Book mBook;
   private Date mDate;
 
@@ -30,35 +29,35 @@ public class EditBookPresenter {
     mFragment = fragment;
     mFragmentContext = fragment.getContext();
     mBinding = binding;
+    mBook = new Book();
+    mDate = mBook.getDate();
   }
 
-  void init(EditBookViewModel viewModel, Long bookId){
+  void init(EditBookViewModel viewModel, long bookId){
     mViewModel = viewModel;
-    mBookId = bookId;
-    mBook = new Book();
-    LiveData<Book> bookData = mViewModel.getBookData(mBookId);
+    setInputValues();
+    setupListeners();
+    LiveData<Book> bookData = mViewModel.getBookDataById(bookId);
     bookData.observe(mFragment, book -> {
       if(book != null){
         mBook = book;
-        setInputsFromBook();
+        setInputValues();
       }
     });
-    setInputsFromBook();
-    setupListeners();
   }
 
   // saves book information to the database
   void saveBook(){
     if(validateInputs()){
       hideKeyboard();
-      setBookFromInputs();
+      setBookValues();
       mViewModel.updateBook(mBook);
       mFragment.getNavigator().toBookList();
     }
   }
 
   // fill the input values based on the book object
-  private void setInputsFromBook() {
+  private void setInputValues() {
     setTitleInput();
     setAuthorInput();
     setDateInput();
@@ -68,7 +67,7 @@ public class EditBookPresenter {
   }
 
   // get the input values and set them to the book object
-  private void setBookFromInputs() {
+  private void setBookValues() {
     setBookTitle();
     setBookAuthor();
     setBookDate();
@@ -151,7 +150,8 @@ public class EditBookPresenter {
 
   void setDate(Date date) {
     mDate = date;
-    mBinding.dateButton.setText(DateFormat.getLongDateFormat(mFragmentContext).format(date));
+    mBinding.dateButton.setText(
+      DateFormat.getLongDateFormat(mFragmentContext).format(date));
   }
 
   private void setUsedInput() {

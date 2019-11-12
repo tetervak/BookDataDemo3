@@ -88,18 +88,12 @@ public class EditBookFragment extends BookAppFragment {
     mPresenter.init(viewModel, mBookId);
   }
 
-  void showDatePickerDialog(Date date) {
-    DatePickerFragment fragment =
-      DatePickerFragment.newInstance(date);
-    fragment.setTargetFragment(this, DATE_REQUEST_CODE);
-    fragment.show(getFragmentManager(), DatePickerFragment.TAG);
+  public void showDatePickerDialog(Date date) {
+    DatePickerFragment.show(this, date, DATE_REQUEST_CODE);
   }
 
   private void showDeleteBookDialog() {
-    ConfirmDeleteFragment fragment =
-      ConfirmDeleteFragment.newInstance();
-    fragment.setTargetFragment(this, DELETE_REQUEST_CODE);
-    fragment.show(getFragmentManager(), ConfirmDeleteFragment.TAG);
+    ConfirmDeleteFragment.show(this, DELETE_REQUEST_CODE);
   }
 
   public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {

@@ -28,12 +28,13 @@ class AddBookPresenter {
     mFragment = fragment;
     mFragmentContext = fragment.getContext();
     mBinding = binding;
+    mBook = new Book();
+    mDate = mBook.getDate();
   }
 
   public void init(AddBookViewModel viewModel) {
     mViewModel = viewModel;
-    mBook = new Book();
-    setInputsFromBook();
+    setInputValues();
     setupListeners();
   }
 
@@ -41,14 +42,14 @@ class AddBookPresenter {
   void saveBook(){
     if(validateInputs()){
       hideKeyboard();
-      setBookFromInputs();
+      setBookValues();
       mViewModel.insertBook(mBook);
       mFragment.getNavigator().toBookList();
     }
   }
 
   // fill the input values based on the book object
-  private void setInputsFromBook() {
+  private void setInputValues() {
     setTitleInput();
     setAuthorInput();
     setDateInput();
@@ -58,7 +59,7 @@ class AddBookPresenter {
   }
 
   // get the input values and set them to the book object
-  private void setBookFromInputs() {
+  private void setBookValues() {
     setBookTitle();
     setBookAuthor();
     setBookDate();
@@ -148,9 +149,8 @@ class AddBookPresenter {
   }
 
   private void setDateInput() {
-    mDate = mBook.getDate();
     mBinding.dateButton.setText(
-      DateFormat.getLongDateFormat(mFragmentContext).format(mDate));
+      DateFormat.getLongDateFormat(mFragmentContext).format(mBook.getDate()));
   }
 
   private void setAuthorInput() {

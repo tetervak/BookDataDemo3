@@ -9,6 +9,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+
 import android.widget.DatePicker;
 
 import java.util.Calendar;
@@ -27,13 +30,20 @@ public class DatePickerFragment extends DialogFragment
         // Required empty public constructor
     }
 
-    @SuppressWarnings("unused")
     public static DatePickerFragment newInstance(Date date) {
         DatePickerFragment fragment = new DatePickerFragment();
         Bundle arguments = new Bundle();
         arguments.putSerializable(DATE, date);
         fragment.setArguments(arguments);
         return fragment;
+    }
+
+    public static void show(
+        Fragment targetFragment, Date date, int requestCode) {
+      DatePickerFragment datePickerFragment = DatePickerFragment.newInstance(date);
+      datePickerFragment.setTargetFragment(targetFragment, requestCode);
+      FragmentManager fragmentManager = targetFragment.getFragmentManager();
+      datePickerFragment.show(fragmentManager, DatePickerFragment.TAG);
     }
 
     @Override

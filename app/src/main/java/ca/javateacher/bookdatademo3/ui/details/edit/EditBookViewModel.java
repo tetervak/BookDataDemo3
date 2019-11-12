@@ -5,6 +5,10 @@ import android.app.Application;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.Transformations;
+
+import java.util.Date;
 
 import javax.inject.Inject;
 
@@ -21,12 +25,13 @@ public class EditBookViewModel extends AndroidViewModel {
 
   public EditBookViewModel(@NonNull Application application) {
     super(application);
+
     ((BookDataApplication)application)
       .getApplicationComponent()
       .inject(this);
   }
 
-  public LiveData<Book> getBookData(long bookId){
+  public LiveData<Book> getBookDataById(long bookId){
     return mRepository.getBookDataById(bookId);
   }
 
@@ -37,5 +42,4 @@ public class EditBookViewModel extends AndroidViewModel {
   public void deleteBook(Book book){
     mRepository.deleteBook(book);
   }
-
 }
